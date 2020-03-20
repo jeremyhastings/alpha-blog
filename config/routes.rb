@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # Specify root page with controller#action
+  root 'pages#home'
+  # a get request with /about that directs to pages controller about action
+  get 'about', to: 'pages#about'
 end
