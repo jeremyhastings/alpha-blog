@@ -51,8 +51,8 @@ group :test do
   gem 'webdrivers'
 end
 
-# This is for PostgreSQL in Heroku
 group :production do
+  # This is for PostgreSQL in Heroku
   gem 'pg'
 end
 
