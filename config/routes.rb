@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   # a get request with /about that directs to pages controller about action
   get 'about', to: 'pages#about'
-  # Creates new_article (post to create), edit (patch to update), delete article, show, and index
+  # Creates new_article (post to create), edit (patch to update), delete
+  # article, show, and index article paths
   resources :articles
 end
