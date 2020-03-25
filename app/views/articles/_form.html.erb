@@ -16,11 +16,13 @@
     <%= f.label :description %>
     <%= f.text_area :description, class: "form-control", placeholder: "Body of article", rows: 10 %>
   </div>
-  <div class="offset-2 form-group">
+  <div class="form-group">
     <%= f.submit class: "btn btn-primary btn-lg" %>
   </div>
 <% end %>
-
+<div class="col-xs-4 offset-4">
+  [ <%= link_to "Cancel request and return to articles listing", articles_path %> ]
+</div>
 
 <!--<form>-->
 <!--  <div class="form-group">-->
