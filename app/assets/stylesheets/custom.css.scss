@@ -1,11 +1,18 @@
 @import 'bootstrap/dist/css/bootstrap';
+
+/////////////////////////// Class CSS /////////////////////////
 .center {
   text-align: center;
+}
+.jumbotron {
+
 }
 .navbar {
   background-color: #08088A;
 }
+/////////////////////////// Class CSS /////////////////////////
 
+///////////////////////////// ID CSS //////////////////////////
 #logo {
   float: left;
   font-size: 1.7em;
@@ -18,9 +25,4 @@
   color: #fff;
   text-decoration: none;
 }
-//.navbar-brand {
-//  font-size: 3rem;
-//}
-//h1 {
-//  color: red;
-//}
+///////////////////////////// ID CSS //////////////////////////
