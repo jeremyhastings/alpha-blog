@@ -1,11 +1,56 @@
 @import 'bootstrap/dist/css/bootstrap';
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+}
+
+footer a:hover {
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 15px;
+}
+
+/////////////////////////// Class CSS /////////////////////////
+.btn-xlarge {
+  font-size: 1.7em;
+  background-color: black;
+}
 .center {
   text-align: center;
 }
-.navbar {
-  background-color: #08088A;
+.jumbotron {
+  background-image: asset_url('new_cover_page.png');
+  background-size: cover;
+  height: 550px;
 }
+.jumbotron h1 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+.navbar {
+  background-color: black;
+}
+/////////////////////////// Class CSS /////////////////////////
 
+///////////////////////////// ID CSS //////////////////////////
 #logo {
   float: left;
   font-size: 1.7em;
@@ -18,9 +63,4 @@
   color: #fff;
   text-decoration: none;
 }
-//.navbar-brand {
-//  font-size: 3rem;
-//}
-//h1 {
-//  color: red;
-//}
+///////////////////////////// ID CSS //////////////////////////
