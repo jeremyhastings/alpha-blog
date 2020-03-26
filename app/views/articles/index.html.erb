@@ -1,21 +1,13 @@
-<h1 align="center">Listing all articles:</h1>
-<!--<p>-->
-  <%#= link_to "Create new article", new_article_path %>
-<!--</p>-->
-<!--<table>-->
-<!--  <tr>-->
-<!--    <th>Title</th>-->
-<!--    <th>Description</th>-->
-<!--  </tr>-->
+<h1 align="center" class="my-3 display-4">Listing all articles:</h1>
 
-  <% @articles.each do | article | %>
-<!--  <div class="row">-->
-<!--    <div class="col-xs-8 offset-2">-->
-      <div class="card card-body">
-        <div class="article-title">
+<% @articles.each do | article | %>
+  <div class="col-sm-8 offset-2">
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="card-title">
           <%= link_to article.title, article_path(article) %>
         </div>
-        <div class="article-body">
+        <div class="card-text">
           <%= truncate(article.description, length: 100) %>
         </div>
         <div class="article-actions">
@@ -24,14 +16,6 @@
                       data: { confirm: "Are you sure you want to delete the article?"} %>
         </div>
       </div>
-<!--    </div>-->
-<!--  </div>-->
-<!--  <tr>-->
-<!--    <td><%#= article.title %></td>-->
-<!--    <td><%#= article.description %></td>-->
-<!--    <td><%#= link_to "Edit", edit_article_path(article) %></td>-->
-<!--    <td><%#= link_to "Show", article_path(article) %></td>-->
-<!--    <td><%#= link_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" } %></td>-->
-<!--  </tr>-->
-  <% end %>
-<!--</table>-->
+    </div>
+  </div>
+<% end %>
