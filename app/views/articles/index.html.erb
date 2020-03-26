@@ -12,8 +12,12 @@
 <!--  <div class="row">-->
 <!--    <div class="col-xs-8 offset-2">-->
       <div class="card card-body">
-        <%= article.title %>
-        <%= article.description %>
+        <div class="article-title">
+          <%= link_to article.title, article_path(article) %>
+        </div>
+        <div class="article-body">
+          <%= article.description %>
+        </div>
         <%= link_to "Edit", edit_article_path(article) %>
         <%= link_to "Show", article_path(article) %>
         <%= link_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" } %>
