@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
 
   has_many :articles
+  has_secure_password
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -15,4 +16,6 @@ class User < ActiveRecord::Base
             length: { maximum: 105 },
             uniqueness: { case_sensitive: false },
             format: { with: VALID_EMAIL_REGEX }
+
+
 end
