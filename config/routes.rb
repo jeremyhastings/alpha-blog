@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   # Creates new_article (post to create), edit (patch to update), delete
   # article, show, and index article paths
   resources :articles
+  # user paths with new users being created at 'signup'
+  resources :users, except:[:new]
+  get 'signup', to: 'users#new'
 end
