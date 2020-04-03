@@ -34,6 +34,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user_articles = @user.articles.order(:created_at).page params[:page]
   end
 
   private
