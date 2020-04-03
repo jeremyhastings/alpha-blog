@@ -1,4 +1,7 @@
 class Article < ActiveRecord::Base
+  # Controls number of articles per page kaminari pagination
+  paginates_per 1
+
   belongs_to :user
 
   validates :description, presence: true, length: { minimum: 10, maximum: 300}
