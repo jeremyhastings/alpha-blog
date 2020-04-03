@@ -1,0 +1,18 @@
+<h1 class="mt-5" align="center">Welcome to <%= @user.username %>'s page</h1>
+
+<div class="row">
+  <div class="col-md-4 offset-4 center">
+    <%= gravatar_for(@user, size: 150) %>
+  </div>
+</div>
+<h4 align="center" class="m-3"><%= @user.username %>'s articles</h4>
+
+<div class="container pagination justify-content-center">
+  <%= paginate @user_articles %>
+</div>
+
+<%= render 'articles/article', obj: @user_articles %>
+
+<div class="container pagination justify-content-center">
+  <%= paginate @user_articles %>
+</div>

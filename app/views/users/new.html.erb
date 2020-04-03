@@ -1,0 +1,9 @@
+<h1 class="mt-5" align="center">Signup for Alpha Blog</h1>
+
+<%= render 'shared/errors', obj: @user %>
+
+<%= render 'users/form' %>
+
+<div class="col-xs-4 offset-4">
+  [ <%= link_to "Cancel request and return to articles listing", articles_path %> ]
+</div>
