@@ -1,6 +1,6 @@
 class Article < ActiveRecord::Base
   # Controls number of articles per page kaminari pagination
-  paginates_per 1
+  paginates_per 5
 
   belongs_to :user
 
