@@ -1,3 +1,11 @@
 <h1 align="center" class="my-3 display-4">Listing all articles:</h1>
 
+<div class="container pagination justify-content-center">
+  <%= paginate @articles %>
+</div>
+
 <%= render 'articles/article', obj: @articles %>
+
+<div class="container pagination justify-content-center">
+  <%= paginate @articles %>
+</div>

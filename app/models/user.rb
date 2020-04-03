@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  # Controls number of users per page kaminari pagination
+  paginates_per 5
 
   before_save { self.email = email.downcase }
 
