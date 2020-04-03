@@ -5,7 +5,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    render 'new'
+    user = User.find_by(email: params[:session][:email].downcase)
+    
   end
 
   def destroy
