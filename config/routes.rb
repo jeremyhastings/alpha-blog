@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   # user paths with new users being created at 'signup'
   resources :users, except:[:new]
   get 'signup', to: 'users#new'
+  # login path to sessions controller
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
 end
