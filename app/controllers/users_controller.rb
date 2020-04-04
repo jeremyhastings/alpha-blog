@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :set_user, only: [:edit, :update, :show]
+  before_action :set_user, only: [:edit, :update, :show, :destroy]
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
@@ -38,7 +38,12 @@ class UsersController < ApplicationController
     @user_articles = @user.articles.order(:created_at).page params[:page]
   end
 
-  
+  def destroy
+    # @user = User.find(params[:id])
+    @user.destroy
+    flash[:danger] = "User and all articles created by user have been deleted."
+    redirect_to users_path
+  end
 
   private
 
