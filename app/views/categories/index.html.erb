@@ -1,5 +1,9 @@
 <h1 align="center">Listing All Categories</h1>
 
+<div class="container pagination justify-content-center">
+  <%= paginate @categories %>
+</div>
+
 <div align="center">
   <% @categories.each do | category | %>
     <ul class="listing">
@@ -12,4 +16,8 @@
       </div>
     </ul>
   <% end %>
+</div>
+
+<div class="container pagination justify-content-center">
+  <%= paginate @categories %>
 </div>
