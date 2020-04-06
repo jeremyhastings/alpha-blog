@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
 
   def index
-
+    @categories = Category.all()
   end
 
   def new
@@ -11,7 +11,8 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-
+      flash[:success] = "Category was created successfully"
+      redirect_to categories_path
     else
       render 'new'
     end
@@ -25,5 +26,5 @@ class CategoriesController < ApplicationController
   def category_params
     params.require(:category).permit(:name)
   end
-  
+
 end
