@@ -1,4 +1,4 @@
-class Article < ActiveRecord::Base
+class Article < ApplicationRecord
   # Controls number of articles per page kaminari pagination
   paginates_per 5
 
