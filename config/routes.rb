@@ -21,5 +21,5 @@ Rails.application.routes.draw do
 
   # categories paths
   resources :categories, except: [:destroy]
-  
+
 end
