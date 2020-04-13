@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   # Controls number of users per page kaminari pagination
   paginates_per 5
 
