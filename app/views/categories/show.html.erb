@@ -1,6 +1,12 @@
 <h1 align="center" class="my-3 display-4"><%= "Category: " + @category.name %></h1>
+<% if logged_in? and current_user.admin? %>
+  <div align="center" class="mb-3">
+    <%= link_to "Edit Category Name", edit_category_path(@category), class: "badge badge-primary" %>
+  </div>
+<% end %>
 
 <div class="container pagination justify-content-center">
+
   <%= paginate @category_articles %>
 </div>
 
