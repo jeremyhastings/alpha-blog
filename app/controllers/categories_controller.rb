@@ -20,6 +20,14 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def edit
+    @category = Category.find(params[:id])
+  end
+
+  def update
+    @category = Category.find(params[:id])
+  end
+
   def show
     @category = Category.find(params[:id])
     @category_articles = @category.articles.order(:created_at).page params[:page]
