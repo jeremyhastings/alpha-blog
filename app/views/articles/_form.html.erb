@@ -11,7 +11,9 @@
   </div>
   <div class="form-group">
     <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do | checkbox | %>
-      <%= checkbox.label(class: "checkbox-inline input_checkbox") { checkbox.check_box(class: "checkbox") + checkbox.text } %>
+      <div class="form-check form-check-inline">
+        <%= checkbox.label(class: "form-check-label input_checkbox") { checkbox.check_box(class: "form-check-input") + checkbox.text } %>
+      </div>
     <% end %>
   </div>
   <div class="form-group">
