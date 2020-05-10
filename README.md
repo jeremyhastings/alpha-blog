@@ -4,94 +4,131 @@ Alpha Blog is a very basic Rails Blog Web Application.  It has users, articles, 
 
 ## Getting Started
 
-This application was created using RubyMine and shouldn't need much to run.  At most:
-```
-bundle install
-```
-and
-```
-rails db:migrate
-```
-followed by:
-```
-rails s
-```
+These instructions will allow you to make a copy of the project yourself, and get it up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
 ### Prerequisites
 
-You will need Bundler 2, Ruby 2.7.1, and other packages that you will be prompted to install when you try to run:
+RubyMine 2019.3, Ruby 2.6.6, and Rails 6.0.2.2 were used to initially make this project on a machine with PostgreSql installed locally.  The application was created as minimalistically as possible.  SQLite should work as well as any other database. 
+
+## FOR REFERENCE:
+
+### Install Bootstrap (via Webpacker not Sprockets)
+
+In the Terminal:
 
 ```
-bundle install
+yarn add bootstrap jquery popper.js
 ```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+Update config > webpack > environment.js:
 
 ```
-Give the example
+const { environment } = require('@rails/webpacker')
+
+const webpack = require("webpack")
+environment.plugins.append("Provide", new webpack.ProvidePlugin({
+    $: 'jquery',
+    jQuery: 'jquery',
+    Popper: ['popper.js', 'default']
+}))
+
+module.exports = environment
 ```
 
-And repeat
+Update app > javascript > packs > application.js:
 
 ```
-until finished
+import "bootstrap";
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+Create app > javascript > stylesheets > application.scss:
 
+```
+@import "bootstrap";
+```
+
+Update app > views > layouts > application.html.erb:
+
+```
+<%= stylesheet_link_tag ... %>
+```
+to
+```
+<%= stylesheet_pack_tag ... %>
+```
+
+Update app > javascript > packs > application.js:
+
+```
+import "../stylesheets/application";
+```
+
+Create app > javascript > packs > custom.js:
+
+```
+// For Bootstrap //////////////////////////
+$(function() {
+    $('[data-toggle="tooltip"]').tooltip();
+});
+
+$(function() {
+    $('[data-toggle="popover"]').popover();
+});
+// For Bootstrap //////////////////////////
+```
+
+Update app > javascript > packs > application.js:
+
+```
+import "./custom";
+```
+
+### Install Kaminari
+
+In the Gemfile:
+```
+gem 'kaminari'
+```
+In the Terminal:
+```
+rails generate kaminari:config
+```
+In the Terminal:
+```
+rails generate kaminari:views bootstrap4
+```
+Index Action of ArticlesController:
+```
+@articles = Article.order(:created_at).page params[:page]
+```
+Index Article View:
+```
+<%= paginate @articles %>
+```
 ## Running the tests
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+Tests to come at a later date.  Want to write some?
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Should easily deploy to Heroku.  Instructions for that at a later date if needed.
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Ruby](https://www.ruby-lang.org/en/) - Language
+* [Ruby on Rails](https://rubyonrails.org) - MVC Framework
+* [RubyMine](https://www.jetbrains.com/ruby/) - IDE
+* [PostgreSQL](https://www.postgresql.org) - Database
+* [Bootstrap](https://getbootstrap.com) - Web Framework
+* [Kaminari](https://github.com/kaminari/kaminari) - A Pagination Gem
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+If you want to ...
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Jeremy Hastings** - *Initial work* - [Jeremy Hastings](https://github.com/jeremyhastings/)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+This project is licensed under the GNU General Public License 3.0 License - see the [LICENSE.md](LICENSE.md) file for details
