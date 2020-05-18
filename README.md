@@ -12,6 +12,16 @@ RubyMine 2019.3, Ruby 2.6.6, and Rails 6.0.2.2 were used to initially make this 
 
 ## FOR REFERENCE:
 
+### Params on Every Page During Development
+
+Add this to app/views/layout/application.html.erb:
+
+```html
+  <div class="container mt-5" style="background-color: #eaeaea;border: 1px solid #eaeaea">
+    <%= debug(params) if Rails.env.development? %>
+  </div>
+```
+
 ### Install Bootstrap (via Webpacker not Sprockets)
 
 In the Terminal:
