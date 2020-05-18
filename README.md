@@ -16,12 +16,12 @@ RubyMine 2019.3, Ruby 2.6.6, and Rails 6.0.2.2 were used to initially make this 
 
 In the Terminal:
 
-```
-yarn add bootstrap jquery popper.js
+```shell
+$ yarn add bootstrap jquery popper.js
 ```
 Update config > webpack > environment.js:
 
-```
+```javascript
 const { environment } = require('@rails/webpacker')
 
 const webpack = require("webpack")
@@ -36,35 +36,35 @@ module.exports = environment
 
 Update app > javascript > packs > application.js:
 
-```
+```javascript
 import "bootstrap";
 ```
 
 Create app > javascript > stylesheets > application.scss:
 
-```
+```scss
 @import "bootstrap";
 ```
 
 Update app > views > layouts > application.html.erb:
 
-```
+```ruby
 <%= stylesheet_link_tag ... %>
 ```
 to
-```
+```ruby
 <%= stylesheet_pack_tag ... %>
 ```
 
 Update app > javascript > packs > application.js:
 
-```
+```javascript
 import "../stylesheets/application";
 ```
 
 Create app > javascript > packs > custom.js:
 
-```
+```javascript
 // For Bootstrap //////////////////////////
 $(function() {
     $('[data-toggle="tooltip"]').tooltip();
@@ -78,32 +78,42 @@ $(function() {
 
 Update app > javascript > packs > application.js:
 
-```
+```javascript
 import "./custom";
 ```
 
 ### Install Kaminari
 
 In the Gemfile:
-```
+
+```ruby
 gem 'kaminari'
 ```
+
 In the Terminal:
+
+```shell
+$ rails generate kaminari:config
 ```
-rails generate kaminari:config
-```
+
 In the Terminal:
+
+```shell
+$ rails generate kaminari:views bootstrap4
 ```
-rails generate kaminari:views bootstrap4
-```
+
 Index Action of ArticlesController:
-```
+
+```ruby
 @articles = Article.order(:created_at).page params[:page]
 ```
+
 Index Article View:
-```
+
+```ruby
 <%= paginate @articles %>
 ```
+
 ## Running the tests
 
 Tests to come at a later date.  Want to write some?
